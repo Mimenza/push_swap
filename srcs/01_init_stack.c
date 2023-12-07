@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:20:46 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/06 13:13:59 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/07 09:31:19 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_init_stack(t_node **stack, char **argv)
 			ft_free_stack(stack);
 			return (0);
 		}
-			
+
 		if (ft_repeated(*stack, nbr))
 		{
 			ft_printf("Cant enter the same nbr twice.\n");

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   00_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:00 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/06 13:06:43 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:44:18 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	main(int argc, char **argv)
 	else if (2 == argc)
 		argv = ft_split(argv[1], ' ');
 		
-	if (0 == ft_init_stack(&a, argv))
+	if (0 == ft_init_stack(&a, argv + 1))
 		return (0);
+	ft_reverse_rotate_stack(&a);
 	while (a)
 	{
 		ft_printf("%i ", a->value);
