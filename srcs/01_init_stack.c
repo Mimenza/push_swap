@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   01_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:20:46 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/07 09:31:19 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:21:27 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-int	ft_repeated(t_node *stack, int nbr)
+void	ft_add_to_stack(t_node **stack, int nbr)
 {
+	t_node	*new;
+	t_node	*last;
+
 	if (stack == NULL)
-		return (0);
-	while (stack)
+		return ;
+	new = malloc(sizeof(t_node));
+	if (new == NULL)
+		return ;
+	if (*stack == NULL)
 	{
-		if (stack->value == nbr)
-			return (1);
-		stack = stack->next;
+		*stack = new;
+		new->prev = NULL;
 	}
-	return (0);
+	else
+	{
+		last = ft_last_node(*stack);
+		last->next = new;
+		new->prev = last;
+	}
+	new->value = nbr;
+	new->next = NULL;
 }
 
 int	ft_init_stack(t_node **stack, char **argv)

@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:51 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/08 18:43:45 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:26:04 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,32 @@ typedef struct s_node
 	int					value;
 	struct s_node		*next;
 	struct s_node		*prev;
+	int					index;
+	int					cost;
+	int					cheapest;
+	struct s_node		*target;
+	int					above_mid;
 }				t_node;
 
 //init_stack
 int		ft_init_stack(t_node **stack, char **argv);
-int		ft_repeated(t_node *stack, int nbr);
+void	ft_add_to_stack(t_node **stack, int nbr);
 
 //utils_stack
 t_node	*ft_last_node(t_node *stack);
-void	ft_add_to_stack(t_node **stack, int nbr);
-void	ft_free_stack(t_node **stack);
 int		ft_stack_len(t_node *stack);
+int		ft_stack_sorted(t_node *stack);
+t_node	*ft_find_min(t_node *stack);
+t_node	*ft_find_max(t_node *stack);
+
+//error
+void	ft_free_stack(t_node **stack);
+int		ft_repeated(t_node *stack, int nbr);
+
+//sort_stack
+void    ft_sort_stack(t_node **a, t_node **b);
+//short3
+void	ft_short_three(t_node **stack);
 
 //swap
 static void	ft_swap_stack(t_node **stack);

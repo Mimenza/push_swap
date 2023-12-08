@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:00 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/08 19:05:26 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:09:46 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	print_stack(t_node *stack, char *name)
 		stack = stack->next;
 	}
 }
+
 int	main(int argc, char **argv)
 {
 	t_node	*a;
@@ -48,9 +49,15 @@ int	main(int argc, char **argv)
 		
 	if (0 == ft_init_stack(&a, argv + 1))
 		return (0);
-	
+	if(ft_stack_sorted(a) == 0)
+	{
+		if (ft_stack_len(a) == 2)
+			sa(&a);
+		else if (ft_stack_len(a) == 3)
+			ft_short_three(&a);
+		//else
+			//ft_short_stack(&a, &b);
+	}
 	print_stack(a, "a");
-	ft_printf("\n\n");
-	print_stack(b, "b");
-	ft_printf("\n");
+	ft_free_stack(&a);
 }
