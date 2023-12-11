@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:40:10 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/08 20:01:22 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:06:50 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_node	*ft_last_node(t_node *stack)
 	return (stack);
 }
 
-int		ft_stack_len(t_node *stack)
+int	ft_stack_len(t_node *stack)
 {
 	int	i;
 
@@ -42,21 +42,21 @@ int	ft_stack_sorted(t_node *stack)
 		return (-1);
 	while (stack->next)
 	{
-		if(stack->value > stack->next->value)
+		if (stack->value > stack->next->value)
 			return (0);
 		stack = stack->next;
 	}
-	return (1);	
+	return (1);
 }
 
-t_node *ft_find_min(t_node *stack)
+t_node	*ft_find_min(t_node *stack)
 {
 	long	min;
 	t_node	*min_node;
 
-	if(!stack)
+	if (!stack)
 		return (NULL);
-	min	= INT_MAX;
+	min = INT_MAX;
 	while (stack)
 	{
 		if (stack->value < min)
@@ -69,17 +69,17 @@ t_node *ft_find_min(t_node *stack)
 	return (min_node);
 }
 
-t_node *ft_find_max(t_node *stack)
+t_node	*ft_find_max(t_node *stack)
 {
 	long	max;
 	t_node	*max_node;
 
-	if(!stack)
+	if (!stack)
 		return (NULL);
-	max	= INT_MIN;
+	max = INT_MIN;
 	while (stack)
 	{
-		if (stack->value >max)
+		if (stack->value > max)
 		{
 			max = stack->value;
 			max_node = stack;

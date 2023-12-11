@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:20:46 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/08 20:21:27 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:04:57 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_init_stack(t_node **stack, char **argv)
 
 	i = 0;
 	nbr = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		nbr = ft_atol(argv[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
@@ -53,7 +53,6 @@ int	ft_init_stack(t_node **stack, char **argv)
 			ft_free_stack(stack);
 			return (0);
 		}
-
 		if (ft_repeated(*stack, nbr))
 		{
 			ft_printf("Cant enter the same nbr twice.\n");
