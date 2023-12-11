@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:51 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/08 20:26:04 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/11 13:17:42 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct s_node
 	int					above_mid;
 }				t_node;
 
+//main
+void	print_stack(t_node *stack, char *name);
+
 //init_stack
 int		ft_init_stack(t_node **stack, char **argv);
 void	ft_add_to_stack(t_node **stack, int nbr);
@@ -47,9 +50,10 @@ void	ft_free_stack(t_node **stack);
 int		ft_repeated(t_node *stack, int nbr);
 
 //sort_stack
-void    ft_sort_stack(t_node **a, t_node **b);
+void	ft_sort_stack(t_node **a, t_node **b);
+
 //short3
-void	ft_short_three(t_node **stack);
+void	ft_sort_three(t_node **stack);
 
 //swap
 static void	ft_swap_stack(t_node **stack);
@@ -73,5 +77,8 @@ void	rrr(t_node **a, t_node **b);
 static void ft_push_stack(t_node **src, t_node **dst);
 void    pa(t_node **a, t_node **b);
 void    pb(t_node **a, t_node **b);
+
+//init the stack a
+void	ft_init_stack_a(t_node *a, t_node *b);
 
 #endif
