@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 19:55:20 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 11:16:31 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:56:21 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_sort_three(t_node **stack)
 {
 	t_node	*max_node;
 
-	max_node = ft_find_max(*stack);
+	max_node = ft_find_max(*stack, INT32_MAX);
 	if (max_node == *stack)
 		ra(stack);
 	else if ((*stack)->next == max_node)

@@ -6,7 +6,7 @@
 #    By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 12:15:22 by emimenza          #+#    #+#              #
-#    Updated: 2023/12/11 13:11:50 by emimenza         ###   ########.fr        #
+#    Updated: 2023/12/11 19:39:22 by emimenza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CCFLAGS		=	-Wall -Wextra -Werror
 NAME		=	push_swap
 
 #Ficheros
-SRC_FILES	=	00_main 01_init_stack 02_utils_stack 03_error 04_sort_stack 05_init_a 99_push 99_rotate 99_reverse_rotate 99_sort3 99_swap
+SRC_FILES	=	00_main 01_init_stack 02_utils_stack 03_error 04_sort_stack 05_init_a 06_move_stack_a 99_push 99_rotate 99_reverse_rotate 99_sort3 99_swap
 SRC			=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ			=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 LIBFT		=	libs/Libft
