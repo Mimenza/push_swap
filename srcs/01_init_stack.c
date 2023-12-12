@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:20:46 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 11:04:57 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/12 09:25:47 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,31 @@ int	ft_init_stack(t_node **stack, char **argv)
 		i++;
 	}
 	return (1);
+}
+
+void	ft_set_index(t_node *stack)
+{
+	int	i;
+	int	mid;
+
+	mid = ft_stack_len(stack) / 2;
+	i = 0;
+	while (stack)
+	{
+		(stack)->index = i;
+		if (i > mid)
+			(stack)->above_mid = 0;
+		else if (i == mid)
+		{
+			if(mid % 2 == 0)
+				(stack)->above_mid = 0;
+			else
+				(stack)->above_mid = 1;
+		}
+		else
+			(stack)->above_mid = 1;
+		i++;
+		(stack) = (stack)->next;
+	}
+	return ;
 }

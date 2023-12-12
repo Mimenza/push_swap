@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06_move_stack_a.c                                  :+:      :+:    :+:   */
+/*   08_move_stack_b.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 19:26:43 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/12 09:41:52 by emimenza         ###   ########.fr       */
+/*   Created: 2023/12/12 09:40:29 by emimenza          #+#    #+#             */
+/*   Updated: 2023/12/12 09:52:01 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_rotate_both(t_node **a, t_node **b, t_node *cheap)
 {
-	while (*a != cheap && *b != cheap->target)
+	while (*a != cheap->target && *b != cheap)
 		rr(a, b);
 	ft_set_index(*a);
 	ft_set_index(*b);
@@ -22,7 +22,7 @@ static void	ft_rotate_both(t_node **a, t_node **b, t_node *cheap)
 
 static void ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap)
 {
-	while (*a != cheap && *b != cheap->target)
+	while (*a != cheap->target && *b != cheap)
 		rrr(a, b);
 	ft_set_index(*a);
 	ft_set_index(*b);
@@ -60,16 +60,16 @@ static t_node	*ft_get_cheapest(t_node *stack)
 	return (stack);
 }
 
-void	ft_move_stack_a(t_node **a, t_node **b)
+void	ft_move_stack_b(t_node **a, t_node **b)
 {
 	t_node  *cheapest;
 
-	cheapest = ft_get_cheapest(*a);
+	cheapest = ft_get_cheapest(*b);
 	if (cheapest->above_mid == 1 && cheapest->target->above_mid == 1)
 		ft_rotate_both(a, b, cheapest);
 	else if (cheapest->above_mid == 0 && cheapest->target->above_mid == 0)
 		ft_rev_rotate_both(a, b, cheapest);
-	ft_check_push(a, cheapest, 'A');
-	ft_check_push(b, cheapest->target, 'B');
-	pb(a, b);
+	ft_check_push(b, cheapest, 'B');
+	ft_check_push(a, cheapest->target, 'A');
+	pa(a, b);
 }

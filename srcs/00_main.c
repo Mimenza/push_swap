@@ -6,11 +6,55 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:00 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 20:49:40 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:36:57 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
+
+// void	print_stack(t_node *stack, char *name)
+// {
+// 	ft_printf("STACK: %s\n", name);
+// 	while (stack)
+// 	{
+// 		ft_printf("--------\n");
+// 		if (stack->prev)
+// 			ft_printf("prev %i \n", stack->prev->value);
+// 		else
+// 			ft_printf("prev NULL\n");
+// 		ft_printf("curr %i \n", stack->value);
+// 		ft_printf("index %i \n", stack->index);
+// 		ft_printf("Above mid %i \n", stack->above_mid);
+// 		if (stack->target != NULL)
+// 			ft_printf("target %i \n", stack->target->value);
+// 		ft_printf("cost %i \n", stack->cost);
+// 		ft_printf("cheap %i \n", stack->cheapest);
+// 		if (stack->next)
+// 			ft_printf("next %i \n", stack->next->value);
+// 		else
+// 			ft_printf("next NULL\n");
+// 		ft_printf("--------\n");
+// 		stack = stack->next;
+// 	}
+// }
+
+void	ft_check_stack_sort(t_node *stack)
+{
+	int	flag;
+
+	flag = 0;
+	while (stack)
+	{
+		if (stack->value && stack->next && (stack->value > stack->next->value))
+			flag = 1;
+		stack = stack->next;
+	}
+
+	if (flag == 1)
+		ft_printf("SORTED KO\n");
+	else
+		ft_printf("SORTED OK\n");
+}
 
 void	print_stack(t_node *stack, char *name)
 {
@@ -18,21 +62,7 @@ void	print_stack(t_node *stack, char *name)
 	while (stack)
 	{
 		ft_printf("--------\n");
-		if (stack->prev)
-			ft_printf("prev %i \n", stack->prev->value);
-		else
-			ft_printf("prev NULL\n");
 		ft_printf("curr %i \n", stack->value);
-		ft_printf("index %i \n", stack->index);
-		ft_printf("Above mid %i \n", stack->above_mid);
-		if (stack->target != NULL)
-			ft_printf("target %i \n", stack->target->value);
-		ft_printf("cost %i \n", stack->cost);
-		ft_printf("cheap %i \n", stack->cheapest);
-		if (stack->next)
-			ft_printf("next %i \n", stack->next->value);
-		else
-			ft_printf("next NULL\n");
 		ft_printf("--------\n");
 		stack = stack->next;
 	}
@@ -67,8 +97,8 @@ int	main(int argc, char **argv)
 		else
 			ft_sort_stack(&a, &b);
 	}
-	print_stack(a, "A");
-	ft_printf("\n\n");
-	print_stack(b, "B");
+	//ft_check_stack_sort(a);
+	//print_stack(a, "A");
+	//print_stack(b, "B");
 	ft_free_stack(&a);
 }

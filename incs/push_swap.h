@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:51 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 20:29:32 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/12 09:56:04 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	print_stack(t_node *stack, char *name);
 //init_stack
 void	ft_add_to_stack(t_node **stack, int nbr);
 int		ft_init_stack(t_node **stack, char **argv);
+void	ft_set_index(t_node *stack);
 
 //utils_stack
 t_node	*ft_last_node(t_node *stack);
@@ -51,6 +52,7 @@ int		ft_repeated(t_node *stack, int nbr);
 
 //sort_stack
 void	ft_sort_stack(t_node **a, t_node **b);
+static void	ft_check_top(t_node **a);
 
 //short3
 void	ft_sort_three(t_node **stack);
@@ -79,11 +81,9 @@ void    pa(t_node **a, t_node **b);
 void    pb(t_node **a, t_node **b);
 
 //init the stack a
-void	ft_set_index(t_node *stack);
 static	void	ft_set_target_a(t_node *a, t_node *b);
 static	void	ft_get_cost_a(t_node *a, t_node *b);
 static	void	ft_set_cheapest_a(t_node *a);
-static	void	_ft_set_target_a(t_node *a, t_node *b);
 void	ft_init_stack_a(t_node *a, t_node *b);
 
 //move stack a
@@ -92,4 +92,15 @@ static void ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap);
 static void ft_check_push(t_node **stack, t_node *push_node, int stack_name);
 void    ft_move_stack_a(t_node **a, t_node **b);
 
+//init the stack b
+static	void	ft_set_target_b(t_node *a, t_node *b);
+static	void	ft_get_cost_b(t_node *a, t_node *b);
+static	void	ft_set_cheapest_b(t_node *b);
+void	ft_init_stack_b(t_node *a, t_node *b);
+
+//move stack a
+static void ft_rotate_both(t_node **a, t_node **b, t_node *cheap);
+static void ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap);
+static void ft_check_push(t_node **stack, t_node *push_node, int stack_name);
+void    ft_move_stack_b(t_node **a, t_node **b);
 #endif

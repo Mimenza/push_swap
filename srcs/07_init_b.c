@@ -1,77 +1,76 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_init_a.c                                        :+:      :+:    :+:   */
+/*   07_init_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 11:17:49 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/12 09:25:35 by emimenza         ###   ########.fr       */
+/*   Created: 2023/12/12 09:22:45 by emimenza          #+#    #+#             */
+/*   Updated: 2023/12/12 09:35:24 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-
-static void	ft_set_target_a(t_node *a, t_node *b)
+static void	ft_set_target_b(t_node *a, t_node *b)
 {
-	while (a)
+	while (b)
 	{
-		a->target = ft_find_max(b, a->value);
-		if (a->target == NULL)
-			a->target = ft_find_max(b, INT32_MAX);
-		a = a->next;
+		b->target = ft_find_min(a, b->value);
+		if (b->target == NULL)
+			b->target = ft_find_min(a, INT_MIN);
+		b = b->next;
 	}
 }
 
-static void	ft_get_cost_a(t_node *a, t_node *b)
+static void	ft_get_cost_b(t_node *a, t_node *b)
 {
 	int		cost;
-	t_node	*a_start;
+	t_node	*b_start;
 
-	a_start = a;
+	b_start = b;
 	cost = 0;
-	while (a)
+	while (b)
 	{
 		cost = 0;
 		
-		if (a->index == a->target->index)
+		if (b->index == b->target->index)
 		{
-			if (a->above_mid == 1)
-				cost += a->index;
+			if (b->above_mid == 1)
+				cost += b->index;
 			else
-				cost += ft_stack_len(a_start) - a->index;
+				cost += ft_stack_len(b_start) - b->index;
 		}
 		else
 		{
-			if (a->above_mid == 1)
-				cost += a->index;
+			if (b->above_mid == 1)
+				cost += b->index;
 			else
-				cost += ft_stack_len(a_start) - a->index;
-			if (a->target->above_mid == 1)
-				cost += a->target->index;
+				cost += ft_stack_len(b_start) - b->index;
+			if (b->target->above_mid == 1)
+				cost += b->target->index;
 			else
-				cost += ft_stack_len(b) - a->target->index;
+				cost += ft_stack_len(a) - b->target->index;
 		}
-		a->cost = cost;
-		a = a->next;
+		b->cost = cost;
+		b = b->next;
 	}
 }
 
-static void	ft_set_cheapest_a(t_node *a)
+static void	ft_set_cheapest_b(t_node *b)
 {
 	t_node *cheapest;
 	t_node	*current;
 
-	current = a;
-	cheapest = a;
+	current = b;
+	cheapest = b;
 	while (current)
 	{
 		if (current->cost < cheapest->cost)
 			cheapest = current;
 		current = current->next;
 	}	
-	current = a;
+	current = b;
 	while (current)
 	{
 		current->cheapest = (current == cheapest) ? 1 : 0;
@@ -79,11 +78,11 @@ static void	ft_set_cheapest_a(t_node *a)
 	}
 }
 
-void	ft_init_stack_a(t_node *a, t_node *b)
+void	ft_init_stack_b(t_node *a, t_node *b)
 {
 	ft_set_index(a);
 	ft_set_index(b);
-	ft_set_target_a(a, b);
-	ft_get_cost_a(a, b);
-	ft_set_cheapest_a(a);
+	ft_set_target_b(a, b);
+	ft_get_cost_b(a, b);
+	ft_set_cheapest_b(b);
 }
