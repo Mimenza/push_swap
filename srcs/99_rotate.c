@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_rotate.c                                        :+:      :+:    :+:   */
+/*   99_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:30:21 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/08 20:18:01 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:05:17 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static void	ft_rotate_stack(t_node **stack)
 void	ra(t_node **a)
 {
 	ft_rotate_stack(a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rb(t_node **b)
 {
 	ft_rotate_stack(b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rr(t_node **a, t_node **b)
 {
 	ft_rotate_stack(a);
 	ft_rotate_stack(b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }

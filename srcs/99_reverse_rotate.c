@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:42:03 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 11:04:12 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:05:24 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static void	ft_reverse_rotate_stack(t_node **stack)
 void	rra(t_node **a)
 {
 	ft_reverse_rotate_stack(a);
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	rrb(t_node **b)
 {
 	ft_reverse_rotate_stack(b);
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_node **a, t_node **b)
 {
 	ft_reverse_rotate_stack(a);
 	ft_reverse_rotate_stack(b);
-	printf("rrr\n");
+	ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 19:54:36 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/12 12:33:33 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:44:33 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_free_stack(t_node **stack)
 	t_node	*tmp;
 	t_node	*current;
 
-	if (NULL == stack)
+	if (NULL == stack || NULL == *stack)
 		return ;
 	current = *stack;
 	while (current)

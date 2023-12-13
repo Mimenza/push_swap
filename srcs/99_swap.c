@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:56:18 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 11:08:12 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:05:09 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,23 @@
 //Swaps the first two nodes of the stack
 static void	ft_swap_stack(t_node **stack)
 {
-	int		len;
-	t_node	*first;
-	t_node	*second;
+	int	len;
 
 	len = ft_stack_len(*stack);
-	if (stack == NULL || *stack == NULL || len < 2)
+	if (NULL == *stack || NULL == stack || 1 == len)
 		return ;
-	first = *stack;
-	second = (*stack)->next;
-	first->next = second->next;
-	first->prev = second;
-	second->next = first;
-	second->prev = NULL;
-	*stack = second;
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
 }
 
 void	sa(t_node **a)
 {
-	ft_swap_stack(a);
+	ft_swap_stack(a);	
 	printf("sa\n");
 }
 

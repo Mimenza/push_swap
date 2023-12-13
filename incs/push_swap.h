@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:51 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/12 09:56:04 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/13 11:31:18 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,9 @@ void    ft_move_stack_a(t_node **a, t_node **b);
 
 //init the stack b
 static	void	ft_set_target_b(t_node *a, t_node *b);
-static	void	ft_get_cost_b(t_node *a, t_node *b);
-static	void	ft_set_cheapest_b(t_node *b);
 void	ft_init_stack_b(t_node *a, t_node *b);
 
-//move stack a
-static void ft_rotate_both(t_node **a, t_node **b, t_node *cheap);
-static void ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap);
+//move stack b
 static void ft_check_push(t_node **stack, t_node *push_node, int stack_name);
 void    ft_move_stack_b(t_node **a, t_node **b);
 #endif
