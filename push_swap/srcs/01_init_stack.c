@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:20:46 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/12 14:55:03 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:34:11 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ int	ft_init_stack(t_node **stack, char **argv)
 		nbr = ft_atol(argv[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
 		{
-			ft_printf("Nbr must be within the limits.\n");
+			ft_printf("Error\n");
 			if (stack && *stack)
 				ft_free_stack(stack);
 			return (0);
 		}
 		if (ft_repeated(*stack, nbr))
 		{
-			ft_printf("Cant enter the same nbr twice.\n");
+			ft_printf("Error\n");
 			if (stack && *stack)
 				ft_free_stack(stack);
 			return (0);

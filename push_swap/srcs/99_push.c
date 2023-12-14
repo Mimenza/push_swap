@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:26:04 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/13 17:05:40 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:22:35 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static void	ft_push_stack(t_node **src, t_node **dst)
 void	pa(t_node **a, t_node **b)
 {
 	ft_push_stack(b, a);
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	pb(t_node **a, t_node **b)
 {
 	ft_push_stack(a, b);
-	printf("pb\n");
+	ft_printf("pb\n");
 }

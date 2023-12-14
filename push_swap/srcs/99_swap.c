@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:56:18 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/13 17:05:09 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:22:18 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ static void	ft_swap_stack(t_node **stack)
 void	sa(t_node **a)
 {
 	ft_swap_stack(a);	
-	printf("sa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_node **b)
 {
 	ft_swap_stack(b);
-	printf("sb\n");
+	ft_printf("sb\n");
 }
 
 void	ss(t_node **a, t_node **b)
 {
 	ft_swap_stack(a);
 	ft_swap_stack(b);
-	printf("ss\n");
+	ft_printf("ss\n");
 }
