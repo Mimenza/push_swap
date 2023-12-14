@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:26:43 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/12 09:41:52 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:37:06 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_rotate_both(t_node **a, t_node **b, t_node *cheap)
 	ft_set_index(*b);
 }
 
-static void ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap)
+static	void	ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap)
 {
 	while (*a != cheap && *b != cheap->target)
 		rrr(a, b);
@@ -53,21 +53,21 @@ static t_node	*ft_get_cheapest(t_node *stack)
 {
 	while (stack)
 	{
-	if (stack->cheapest == 1)
-		return (stack);
-	stack = stack->next;
+		if (stack->cheapest == 1)
+			return (stack);
+		stack = stack->next;
 	}
 	return (stack);
 }
 
 void	ft_move_stack_a(t_node **a, t_node **b)
 {
-	t_node  *cheapest;
+	t_node	*cheapest;
 
 	cheapest = ft_get_cheapest(*a);
-	if (cheapest->above_mid == 1 && cheapest->target->above_mid == 1)
+	if ((cheapest->above_mid == 1) && (cheapest->target->above_mid == 1))
 		ft_rotate_both(a, b, cheapest);
-	else if (cheapest->above_mid == 0 && cheapest->target->above_mid == 0)
+	else if ((cheapest->above_mid == 0) && (cheapest->target->above_mid == 0))
 		ft_rev_rotate_both(a, b, cheapest);
 	ft_check_push(a, cheapest, 'A');
 	ft_check_push(b, cheapest->target, 'B');

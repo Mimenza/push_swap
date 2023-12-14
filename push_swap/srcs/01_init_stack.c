@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:20:46 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 11:34:11 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:38:28 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,7 @@ int	ft_init_stack(t_node **stack, char **argv)
 	while (argv[i])
 	{
 		nbr = ft_atol(argv[i]);
-		if (nbr < INT_MIN || nbr > INT_MAX)
-		{
-			ft_printf("Error\n");
-			if (stack && *stack)
-				ft_free_stack(stack);
-			return (0);
-		}
-		if (ft_repeated(*stack, nbr))
+		if ((nbr < INT_MIN || nbr > INT_MAX) || ft_repeated(*stack, nbr))
 		{
 			ft_printf("Error\n");
 			if (stack && *stack)
@@ -81,7 +74,7 @@ void	ft_set_index(t_node *stack)
 			(stack)->above_mid = 0;
 		else if (i == mid)
 		{
-			if(mid % 2 == 0)
+			if (mid % 2 == 0)
 				(stack)->above_mid = 0;
 			else
 				(stack)->above_mid = 1;

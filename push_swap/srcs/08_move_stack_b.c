@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:40:29 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/13 17:07:20 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:34:31 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ static void	ft_check_push(t_node **stack, t_node *push_node, int stack_name)
 	{
 		if (stack_name == 'B')
 		{
-			if (1 == push_node->above_mid )
+			if (1 == push_node->above_mid)
 				rb(stack);
 			else
 				rrb(stack);
 		}
 		else
 		{
-			if (1 == push_node->above_mid )
+			if (1 == push_node->above_mid)
 				ra(stack);
 			else
 				rra(stack);

@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:00 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 15:24:40 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:40:40 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	main(int argc, char **argv)
 	len = ft_stack_len(a);
 	if (ft_stack_sorted(a) == 0)
 	{
-		if (len == 2)
-			sa(&a);
-		else if (len == 3)
+		if (len <= 3)
 			ft_sort_three(&a);
 		else
 			ft_sort_stack(&a, &b);
