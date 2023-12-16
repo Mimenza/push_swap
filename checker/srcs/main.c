@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:31:13 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 16:15:57 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:30:25 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,30 +34,31 @@ static void	error(t_node **a, t_node **b)
 static void	parse_command(t_node **a, t_node **b, char *command)
 {
 	if (!ft_strcmp(command, "pa\n"))
-		pa(a, b);
+		pa(a, b, 0);
 	else if (!ft_strcmp(command, "pb\n"))
-		pb(b, a);
+		pb(a, b, 0);
 	else if (!ft_strcmp(command, "sa\n"))
-		sa(a);
+		sa(a, 0);
 	else if (!ft_strcmp(command, "sb\n"))
-		sb(b);
+		sb(b, 0);
 	else if (!ft_strcmp(command, "ss\n"))
-		ss(a, b);
+		ss(a, b, 0);
 	else if (!ft_strcmp(command, "ra\n"))
-		ra(a);
+		ra(a, 0);
 	else if (!ft_strcmp(command, "rb\n"))
-		rb(b);
+		rb(b, 0);
 	else if (!ft_strcmp(command, "rr\n"))
-		rr(a, b);
+		rr(a, b, 0);
 	else if (!ft_strcmp(command, "rra\n"))
-		rra(a);
+		rra(a, 0);
 	else if (!ft_strcmp(command, "rrb\n"))
-		rrb(b);
+		rrb(b, 0);
 	else if (!ft_strcmp(command, "rrr\n"))
-		rrr(a, b);
+		rrr(a, b, 0);
 	else
 		error(a, b);
 }
+
 int	main(int argc, char **argv)
 {
 	t_node	*a;
@@ -76,16 +77,18 @@ int	main(int argc, char **argv)
 		ft_init_stack(&a, ft_split(argv[1], ' '));
 	else
 		ft_init_stack(&a, argv + 1);
-	len = ft_stack_len(a);
+
+	len = ft_stack_len(a);	
 	next_line = get_next_line(STDIN_FILENO);
+
 	while (next_line)
 	{
 		parse_command(&a, &b, next_line);
 		next_line = get_next_line(STDIN_FILENO);
 	}
 	if (ft_stack_sorted(a) == 1 && ft_stack_len(a) == len)
-		write(1, "OK\n", 3);
+		ft_printf("\033[0;32mOK\033[0m\n");
 	else
-		write(1, "KO\n", 3);
+		ft_printf("\033[0;31mKO\033[0m\n");
 	free(a);
 }
