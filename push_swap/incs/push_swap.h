@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:51 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/13 11:31:18 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:18:11 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,26 @@ void	ft_sort_three(t_node **stack);
 
 //swap
 static void	ft_swap_stack(t_node **stack);
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
+void	sa(t_node **a, int mode);
+void	sb(t_node **b, int mode);
+void	ss(t_node **a, t_node **b, int mode);
 
 //rotate
 static void	ft_rotate_stack(t_node **stack);
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
+void	ra(t_node **a, int mode);
+void	rb(t_node **b, int mode);
+void	rr(t_node **a, t_node **b, int mode);
 
 //reverse rotate
 static void	ft_reverse_rotate_stack(t_node **stack);
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void	rra(t_node **a, int mode);
+void	rrb(t_node **b, int mode);
+void	rrr(t_node **a, t_node **b, int mode);
 
 //push a node from a stack to another
 static void ft_push_stack(t_node **src, t_node **dst);
-void    pa(t_node **a, t_node **b);
-void    pb(t_node **a, t_node **b);
+void    pa(t_node **a, t_node **b, int mode);
+void    pb(t_node **a, t_node **b, int mode);
 
 //init the stack a
 static	void	ft_set_target_a(t_node *a, t_node *b);

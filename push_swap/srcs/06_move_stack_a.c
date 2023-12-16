@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:26:43 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 15:37:06 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:20:57 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_rotate_both(t_node **a, t_node **b, t_node *cheap)
 {
 	while (*a != cheap && *b != cheap->target)
-		rr(a, b);
+		rr(a, b, 1);
 	ft_set_index(*a);
 	ft_set_index(*b);
 }
@@ -23,7 +23,7 @@ static void	ft_rotate_both(t_node **a, t_node **b, t_node *cheap)
 static	void	ft_rev_rotate_both(t_node **a, t_node **b, t_node *cheap)
 {
 	while (*a != cheap && *b != cheap->target)
-		rrr(a, b);
+		rrr(a, b, 1);
 	ft_set_index(*a);
 	ft_set_index(*b);
 }
@@ -35,16 +35,16 @@ static void	ft_check_push(t_node **stack, t_node *push_node, int stack_name)
 		if (stack_name == 'A')
 		{
 			if (push_node->above_mid == 1)
-				ra(stack);
+				ra(stack, 1);
 			else
-				rra(stack);
+				rra(stack, 1);
 		}
 		else
 		{
 			if (push_node->above_mid == 1)
-				rb(stack);
+				rb(stack, 1);
 			else
-				rrb(stack);
+				rrb(stack, 1);
 		}
 	}
 }
@@ -71,5 +71,5 @@ void	ft_move_stack_a(t_node **a, t_node **b)
 		ft_rev_rotate_both(a, b, cheapest);
 	ft_check_push(a, cheapest, 'A');
 	ft_check_push(b, cheapest->target, 'B');
-	pb(a, b);
+	pb(a, b, 1);
 }

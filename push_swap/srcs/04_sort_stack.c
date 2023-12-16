@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 20:23:08 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 15:41:24 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:20:32 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	ft_check_top(t_node **a)
 	while ((*a)->value != min->value)
 	{
 		if (min->above_mid == 1)
-			ra(a);
+			ra(a, 1);
 		else
-			rra(a);
+			rra(a, 1);
 	}
 }
 
@@ -32,11 +32,11 @@ void	ft_sort_stack(t_node **a, t_node **b)
 
 	len = ft_stack_len(*a);
 	if (len-- > 3 && !ft_stack_sorted(*a))
-		pb(a, b);
+		pb(a, b, 1);
 	if (len > 4 && !ft_stack_sorted(*a))
 	{
-		pb(a, b);
-		pb(a, b);
+		pb(a, b, 1);
+		pb(a, b, 1);
 	}
 	len = ft_stack_len(*a);
 	while (len > 3 && !ft_stack_sorted(*a))

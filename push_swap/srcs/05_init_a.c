@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:17:49 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 15:54:16 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 14:46:38 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,6 @@ static void	ft_set_target_a(t_node *a, t_node *b)
 	}
 }
 
-static void	ft_get_cost_a_aux(t_node *a, t_node *b, int *cost, t_node *a_start)
-{
-	if (a->index == a->target->index)
-	{
-		if (a->above_mid == 1)
-			cost += a->index;
-		else
-			cost += ft_stack_len(a_start) - a->index;
-	}
-	else
-	{
-		if (a->above_mid == 1)
-			cost += a->index;
-		else
-			cost += ft_stack_len(a_start) - a->index;
-		if (a->target->above_mid == 1)
-			cost += a->target->index;
-		else
-			cost += ft_stack_len(b) - a->target->index;
-	}
-}
-
 static void	ft_get_cost_a(t_node *a, t_node *b)
 {
 	int		cost;
@@ -55,7 +33,24 @@ static void	ft_get_cost_a(t_node *a, t_node *b)
 	while (a)
 	{
 		cost = 0;
-		ft_get_cost_a_aux(a, b, &cost, a_start);
+		if (a->index == a->target->index)
+		{
+			if (a->above_mid == 1)
+				cost += a->index;
+			else
+				cost += ft_stack_len(a_start) - a->index;
+		}
+		else
+		{
+			if (a->above_mid == 1)
+				cost += a->index;
+			else
+				cost += ft_stack_len(a_start) - a->index;
+			if (a->target->above_mid == 1)
+				cost += a->target->index;
+			else
+				cost += ft_stack_len(b) - a->target->index;
+		}
 		a->cost = cost;
 		a = a->next;
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   99_swap.c                                          :+:      :+:    :+:   */
+/*   13_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:56:18 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/14 15:31:13 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:19:07 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,24 @@ static void	ft_swap_stack(t_node **stack)
 	(*stack)->prev = NULL;
 }
 
-void	sa(t_node **a)
+void	sa(t_node **a, int mode)
 {
 	ft_swap_stack(a);
-	ft_printf("sa\n");
+	if (mode == 1)
+		ft_printf("sa\n");
 }
 
-void	sb(t_node **b)
+void	sb(t_node **b, int mode)
 {
 	ft_swap_stack(b);
-	ft_printf("sb\n");
+	if (mode == 1)
+		ft_printf("sb\n");
 }
 
-void	ss(t_node **a, t_node **b)
+void	ss(t_node **a, t_node **b, int mode)
 {
 	ft_swap_stack(a);
 	ft_swap_stack(b);
-	ft_printf("ss\n");
+	if (mode == 1)
+		ft_printf("ss\n");
 }

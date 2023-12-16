@@ -6,7 +6,7 @@
 #    By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 12:15:22 by emimenza          #+#    #+#              #
-#    Updated: 2023/12/14 16:43:23 by emimenza         ###   ########.fr        #
+#    Updated: 2023/12/16 16:35:41 by emimenza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,7 @@ NAME		=	push_swap
 LIB_NAME	=	libpush_swap.a
 
 #Ficheros
-SRC_FILES	=	00_main 01_init_stack 02_utils_stack 03_error 04_sort_stack 05_init_a 06_move_stack_a 07_init_b 08_move_stack_b 99_push 99_rotate 99_reverse_rotate 99_sort3 99_swap
+SRC_FILES	=	00_main 01_init_stack 02_utils_stack 03_error 04_sort_stack 05_init_a 06_move_stack_a 07_init_b 08_move_stack_b 09_push 11_rotate 10_reverse_rotate 12_sort3 13_swap
 SRC			=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ			=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 LIBFT		=	libs/Libft
@@ -170,8 +170,17 @@ clean:
 	@$(RM) -r $(OBJ_DIR) $(PRINTF)/objs $(LIBFT)/objs
 	@echo "$(RED)OBJS AND DIRECTORIES CLEANED!$(NC)"
 
-fclean: clean
+clean_libft:
+	@$(MAKE) -C ./$(LIBFT) fclean
+	@echo "$(RED)LIBFT OBJECTS CLEANED!$(NC)"
+
+clean_printf:
+	@$(MAKE) -C ./$(PRINTF) fclean
+	@echo "$(RED)FT_PRINTF OBJECTS CLEANED!$(NC)"
+	
+fclean: clean clean_libft clean_printf
 	@$(RM) $(NAME) $(LIB_NAME)
 	@echo "$(RED)EXECUTABLE AND LIBRARY CLEANED!$(NC)"
+
 
 re: fclean all

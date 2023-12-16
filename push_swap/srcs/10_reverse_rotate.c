@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   99_reverse_rotate.c                                :+:      :+:    :+:   */
+/*   10_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:42:03 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/13 17:05:24 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:18:48 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,24 @@ static void	ft_reverse_rotate_stack(t_node **stack)
 	first->prev = last;
 }
 
-void	rra(t_node **a)
+void	rra(t_node **a, int mode)
 {
 	ft_reverse_rotate_stack(a);
-	ft_printf("rra\n");
+	if (mode == 1)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_node **b)
+void	rrb(t_node **b, int mode)
 {
 	ft_reverse_rotate_stack(b);
-	ft_printf("rrb\n");
+	if (mode == 1)
+		ft_printf("rrb\n");
 }
 
-void	rrr(t_node **a, t_node **b)
+void	rrr(t_node **a, t_node **b, int mode)
 {
 	ft_reverse_rotate_stack(a);
 	ft_reverse_rotate_stack(b);
-	ft_printf("rrr\n");
+	if (mode == 1)
+		ft_printf("rrr\n");
 }

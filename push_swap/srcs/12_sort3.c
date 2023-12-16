@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   99_sort3.c                                         :+:      :+:    :+:   */
+/*   12_sort3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 19:55:20 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 17:56:21 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:21:38 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_sort_three(t_node **stack)
 
 	max_node = ft_find_max(*stack, INT32_MAX);
 	if (max_node == *stack)
-		ra(stack);
+		ra(stack, 1);
 	else if ((*stack)->next == max_node)
-		rra(stack);
+		rra(stack, 1);
 	if ((*stack)->value > (*stack)->next->value)
-		sa(stack);
+		sa(stack, 1);
 }
