@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:56:57 by emimenza          #+#    #+#             */
-/*   Updated: 2023/09/26 15:06:05 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:24:09 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	if (n == 0 || dst == src)
 	{
 		return (dst);
-	}	
+	}
 	while (i < n)
-	{	
+	{
 		dst2[i] = src2[i];
 		i++;
 	}

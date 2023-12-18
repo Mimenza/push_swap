@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:34:20 by emimenza          #+#    #+#             */
-/*   Updated: 2023/11/09 16:46:53 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:23:19 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_itoa(int n)
 		ptr[0] = '-';
 	}
 	while ((size > 0 && ptr[0] != '-') || (ptr[0] == '-' && size > 1))
-	{	
+	{
 		ptr[size - 1] = (num % 10) + 48;
 		num = num / 10;
 		size--;

@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:00:03 by emimenza          #+#    #+#             */
-/*   Updated: 2023/09/27 11:49:57 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:23:54 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 			dst[i] = src[i];
 			i++;
 		}
-	dst[i] = '\0';
+		dst[i] = '\0';
 	}
 	return (count);
 }
