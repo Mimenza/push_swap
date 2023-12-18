@@ -6,22 +6,11 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:31:13 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/16 16:30:25 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:06:07 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/checker.h"
-
-static int	ft_strcmp(char *str_1, char *str_2)
-{
-	while (*str_1 == *str_2
-		&& *str_1)
-	{
-		++str_1;
-		++str_2;
-	}
-	return (*str_1 - *str_2);
-}
 
 static void	error(t_node **a, t_node **b)
 {
@@ -33,30 +22,38 @@ static void	error(t_node **a, t_node **b)
 
 static void	parse_command(t_node **a, t_node **b, char *command)
 {
-	if (!ft_strcmp(command, "pa\n"))
+	if (!ft_strncmp(command, "pa\n", INT32_MAX))
 		pa(a, b, 0);
-	else if (!ft_strcmp(command, "pb\n"))
+	else if (!ft_strncmp(command, "pb\n", INT32_MAX))
 		pb(a, b, 0);
-	else if (!ft_strcmp(command, "sa\n"))
+	else if (!ft_strncmp(command, "sa\n", INT32_MAX))
 		sa(a, 0);
-	else if (!ft_strcmp(command, "sb\n"))
+	else if (!ft_strncmp(command, "sb\n", INT32_MAX))
 		sb(b, 0);
-	else if (!ft_strcmp(command, "ss\n"))
+	else if (!ft_strncmp(command, "ss\n", INT32_MAX))
 		ss(a, b, 0);
-	else if (!ft_strcmp(command, "ra\n"))
+	else if (!ft_strncmp(command, "ra\n", INT32_MAX))
 		ra(a, 0);
-	else if (!ft_strcmp(command, "rb\n"))
+	else if (!ft_strncmp(command, "rb\n", INT32_MAX))
 		rb(b, 0);
-	else if (!ft_strcmp(command, "rr\n"))
+	else if (!ft_strncmp(command, "rr\n", INT32_MAX))
 		rr(a, b, 0);
-	else if (!ft_strcmp(command, "rra\n"))
+	else if (!ft_strncmp(command, "rra\n", INT32_MAX))
 		rra(a, 0);
-	else if (!ft_strcmp(command, "rrb\n"))
+	else if (!ft_strncmp(command, "rrb\n", INT32_MAX))
 		rrb(b, 0);
-	else if (!ft_strcmp(command, "rrr\n"))
+	else if (!ft_strncmp(command, "rrr\n", INT32_MAX))
 		rrr(a, b, 0);
 	else
 		error(a, b);
+}
+
+void	ft_check_and_print(t_node **a, int len)
+{
+	if (ft_stack_sorted(*a) == 1 && ft_stack_len(*a) == len)
+		ft_printf("\033[0;32mOK\033[0m\n");
+	else
+		ft_printf("\033[0;31mKO\033[0m\n");
 }
 
 int	main(int argc, char **argv)
@@ -77,18 +74,13 @@ int	main(int argc, char **argv)
 		ft_init_stack(&a, ft_split(argv[1], ' '));
 	else
 		ft_init_stack(&a, argv + 1);
-
-	len = ft_stack_len(a);	
+	len = ft_stack_len(a);
 	next_line = get_next_line(STDIN_FILENO);
-
 	while (next_line)
 	{
 		parse_command(&a, &b, next_line);
 		next_line = get_next_line(STDIN_FILENO);
 	}
-	if (ft_stack_sorted(a) == 1 && ft_stack_len(a) == len)
-		ft_printf("\033[0;32mOK\033[0m\n");
-	else
-		ft_printf("\033[0;31mKO\033[0m\n");
+	ft_check_and_print(&a, len);
 	free(a);
 }
