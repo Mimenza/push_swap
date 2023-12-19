@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:17:49 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/18 13:51:45 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/19 09:35:21 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_set_target_a(t_node *a, t_node *b)
 	{
 		a->target = ft_find_max(b, a->value);
 		if (a->target == NULL)
-			a->target = ft_find_max(b, INT32_MAX);
+			a->target = ft_find_max(b, INT_MAX);
 		a = a->next;
 	}
 }

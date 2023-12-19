@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:40:10 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/11 18:13:15 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/19 09:53:22 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_stack_sorted(t_node *stack)
 	return (1);
 }
 
-t_node	*ft_find_min(t_node *stack, int min_value)
+t_node	*ft_find_min(t_node *stack, long min_value)
 {
 	long	min;
 	t_node	*min_node;
@@ -60,6 +60,8 @@ t_node	*ft_find_min(t_node *stack, int min_value)
 	min_node = NULL;
 	while (stack)
 	{
+		if (stack->value == INT_MIN)
+			return (stack);
 		if (stack->value < min && stack->value > min_value)
 		{
 			min = stack->value;
@@ -70,7 +72,7 @@ t_node	*ft_find_min(t_node *stack, int min_value)
 	return (min_node);
 }
 
-t_node	*ft_find_max(t_node *stack, int max_value)
+t_node	*ft_find_max(t_node *stack, long max_value)
 {
 	long	max;
 	t_node	*max_node;
@@ -81,6 +83,8 @@ t_node	*ft_find_max(t_node *stack, int max_value)
 	max_node = NULL;
 	while (stack)
 	{
+		if (stack->value == INT_MAX)
+			return (stack);
 		if (stack->value > max && stack->value < max_value)
 		{
 			max = stack->value;

@@ -6,7 +6,7 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:39:51 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/18 09:20:49 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/19 09:28:06 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void		ft_set_index(t_node *stack);
 t_node		*ft_last_node(t_node *stack);
 int			ft_stack_len(t_node *stack);
 int			ft_stack_sorted(t_node *stack);
-t_node		*ft_find_min(t_node *stack, int min_value);
-t_node		*ft_find_max(t_node *stack, int max_value);
+t_node		*ft_find_min(t_node *stack, long min_value);
+t_node		*ft_find_max(t_node *stack, long max_value);
 
 //error
 void		ft_free_stack(t_node **stack);
