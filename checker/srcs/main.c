@@ -6,11 +6,34 @@
 /*   By: emimenza <emimenza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:31:13 by emimenza          #+#    #+#             */
-/*   Updated: 2023/12/18 13:06:07 by emimenza         ###   ########.fr       */
+/*   Updated: 2023/12/19 10:10:41 by emimenza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/checker.h"
+
+int	ft_check_digit(char **argv)
+{
+	int	j;
+	int	i;
+
+	i = 0;
+	while (argv[i] != '\0')
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			if (!ft_isdigit(argv[i][j]))
+			{
+				ft_printf("Error\n");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 static void	error(t_node **a, t_node **b)
 {
@@ -65,9 +88,9 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (1 == argc || (2 == argc && !argv[1][0]))
+	if (1 == argc || (2 == argc && !argv[1][0]) || ft_check_digit(argv) == 0)
 	{
-		ft_printf("Wrong numbers of arguments\n");
+		ft_printf("Error\n");
 		return (0);
 	}
 	else if (2 == argc)
